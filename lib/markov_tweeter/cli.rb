@@ -13,28 +13,30 @@ class MarkovTweeter::CLI
   end
 
 
-
-def start
-    greeting
-    input = nil
-    while input != "exit"
-      puts ""
-      puts "How long do you want you tweet to be? Type 140 or 280"
-      puts ""
-      puts "Enter exit to end the program."
-      puts ""
-      input = gets.strip
-      if input == "greeting"
-        greeting
-      elsif input.to_i == 140
-        MarkovTweeter::Generator.markovIt140(input)
-      elsif input.to_i == 280
-        MarkovTweeter::Generator.markovIt140(input)
-        else
-          puts "Sorry, im not sure we can complete your request. Type greeting to start over."
+  def start
+      greeting
+      input = nil
+      while input != "exit"
+        puts ""
+        puts "What job would you like more information on? Type number"
+        puts ""
+        puts "Enter list to see the jobs again."
+        puts "Enter exit to end the program."
+        puts ""
+        input = gets.strip
+        if input == "greeting"
+          greeting
+        elsif input.to_i == 140
+          if input = MarkovTweeter::Generator.markovIt140(input)
+          end
+        elsif input.to_i == 280
+          if job = MarkovTweeter::Generator.markovIt280(input)
+          else
+            puts "Sorry, im not sure we have what you are looking for. Type list to see the list of jobs again."
+          end
         end
       end
+      puts "Goodluck with your job search!"
     end
-    puts "Remember to Tweet responsibly!"
-  end
+
 end
