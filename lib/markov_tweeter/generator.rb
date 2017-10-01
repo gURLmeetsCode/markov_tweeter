@@ -8,7 +8,7 @@ class MarkovTweeter::Generator
 def self.markovIt140(input)
   @result = @current_gram
   i = 0
-  while i < input do
+  while i < input.to_i do
     @current_gram = text.slice(0, @order)
     @possibilities = @graph[@current_gram]
     if !possibilities
@@ -29,7 +29,7 @@ end
 def self.markovIt280(input)
   result = current_gram
   i = 0
-  while i < input do
+  while i < input.to_i do
     current_gram = text.substring(0, @order)
     possibilities = @graph[current_gram]
     if !possibilities
