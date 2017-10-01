@@ -9,12 +9,12 @@ def self.markovIt140(input)
   @result = @current_gram
   i = 0
   while i < input.to_i do
-    @current_gram = text.slice(0, @order)
+    @current_gram = @files.slice(0, @order)
     @possibilities = @graph[@current_gram]
     if !possibilities
       break
     end
-    @next_char = rand(0..possibilities)
+    @next_char = rand(0..@possibilities)
     @result += @next_char
     @current_gram = @result.slice(@result.length - @order, @result.length)
   i += 1
@@ -27,20 +27,20 @@ end
 # selected 280 character tweet
 
 def self.markovIt280(input)
-  result = current_gram
+  @result = @current_gram
   i = 0
   while i < input.to_i do
-    current_gram = text.substring(0, @order)
-    possibilities = @graph[current_gram]
+    @current_gram = @files.slice(0, @order)
+    @possibilities = @graph[@current_gram]
     if !possibilities
       break
     end
-    next_char = rand(0..possibilities)
-    result += next_char
-    current_gram = result.substring(result.length - @order, result.length)
+    @next_char = rand(0..possibilities)
+    @result += @next_char
+    @current_gram = @result.slice(@result.length - @order, result.length)
     i += 1
   end
-  result
+  @result
 end
 
 
