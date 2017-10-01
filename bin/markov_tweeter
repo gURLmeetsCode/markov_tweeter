@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+
+require "./lib/markov_tweeter"
+
+
+MarkovTweeter::CLI.new.call
