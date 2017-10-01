@@ -1,3 +1,5 @@
+require 'pry'
+
 class MarkovTweeter::FileImporter
   attr_reader :graph, :order, :files
 
@@ -6,10 +8,9 @@ class MarkovTweeter::FileImporter
   end
 
   def read
-    File.open(File.dirname(__FILE__) + '/tweets.txt', "r") do |f|
-      f.each_line do |line|
-        @files << line
-      end
+    File.open(File.dirname(__FILE__) + '/tweets.txt').each do |line|
+      @files << line
+      binding.pry
     end
   end
 
