@@ -1,11 +1,36 @@
 require 'pry'
 
 class MarkovTweeter::Generator
-  attr_accessor :result, :possibilities, :current_gram, :next_char
-  attr_reader :files, :graph, :order
+  attr_accessor :result, :possibilities, :current_gram, :next_char, :files, :graph, :order
+
+  def initialize
+    @files = []
+    @order = 3
+    @graph = {}
+  end
+
+  def read
+    File.readlines(File.dirname(__FILE__) + '/tweets.txt').each do |line|
+      @files << line
+    end
+  end
 
 
-# selected 140 character tweet
+def train
+  i = 0
+  while i < @files.length - @order do
+    gram = @files.slice(i, i + @order)
+    if @graph.include? gram
+      @graph[gram] = []
+    else
+      @graph[gram].push(@files.slice(i + @order))
+    end
+    i += 1
+  end
+end
+
+
+
 def self.markovIt140(input)
   @result = @current_gram
   i = 0
@@ -25,7 +50,6 @@ end
 
 
 
-# selected 280 character tweet
 
 def self.markovIt280(input)
   @result = @current_gram
