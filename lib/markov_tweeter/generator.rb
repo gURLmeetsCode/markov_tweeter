@@ -10,7 +10,7 @@ end
 
 
 # selected 140 character tweet
-def markovIt140(input)
+def self.markovIt140(input)
   result = current_gram
   i = 0
   while i < input do
@@ -31,7 +31,7 @@ end
 
 # selected 280 character tweet
 
-def markovIt280(input)
+def self.markovIt280(input)
   result = current_gram
   i = 0
   while i < input do

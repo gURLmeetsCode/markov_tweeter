@@ -1,5 +1,6 @@
 class MarkovTweeter::CLI
   def call
+    MarkovTweeter::FileImporter.new.train
     start
   end
 
@@ -18,9 +19,8 @@ class MarkovTweeter::CLI
       input = nil
       while input != "exit"
         puts ""
-        puts "What job would you like more information on? Type number"
         puts ""
-        puts "Enter list to see the jobs again."
+        puts "Enter greeting to start over."
         puts "Enter exit to end the program."
         puts ""
         input = gets.strip

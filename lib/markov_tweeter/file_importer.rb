@@ -1,4 +1,4 @@
-class FileImporter
+class MarkovTweeter::FileImporter
   attr_reader :graph, :order
 
   def train
