@@ -10,10 +10,10 @@ end
 
 
 # selected 140 character tweet
-def markovIt140
+def markovIt140(input)
   result = current_gram
   i = 0
-  while i < 140 do
+  while i < input do
     current_gram = text.substring(0, @order)
     possibilities = @graph[current_gram]
     if !possibilities
@@ -31,10 +31,10 @@ end
 
 # selected 280 character tweet
 
-def markovIt280
+def markovIt280(input)
   result = current_gram
   i = 0
-  while i < 280 do
+  while i < input do
     current_gram = text.substring(0, @order)
     possibilities = @graph[current_gram]
     if !possibilities
@@ -49,19 +49,7 @@ def markovIt280
 end
 
 
-# recieve the parsed text file and go through to make n-grams
-# def train
-#   i = 0
-#   while i <= @file.length - @order do
-#     gram = @file.substring(i, i + order)
-#     if @graph.include?gram
-#       @graph[gram] = []
-#     else
-#       @graph[gram].push(txt.charAt(i + order))
-#     end
-#     i += 1
-#   end
-# end
+
 
 
 end

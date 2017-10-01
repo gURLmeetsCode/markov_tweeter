@@ -13,17 +13,6 @@ class MarkovTweeter::CLI
   end
 
 
-  def display_tweets(tweet)
-      puts ""
-      puts ""
-      puts ""
-      puts ""
-      puts ""
-      puts ""
-  end
-
-
-
 
 def start
     greeting
@@ -38,12 +27,9 @@ def start
       if input == "greeting"
         greeting
       elsif input.to_i == 140
-        if job = DevJobs::Job.find_by_name(input)
-          display_tweets(tweet)
-        end
+        MarkovTweeter::Generator.markovIt140(input)
       elsif input.to_i == 280
-        if job = DevJobs::Job.all[input.to_i-1]
-          display_tweets(tweet)
+        MarkovTweeter::Generator.markovIt140(input)
         else
           puts "Sorry, im not sure we can complete your request. Type greeting to start over."
         end
