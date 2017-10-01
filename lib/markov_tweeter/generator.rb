@@ -1,30 +1,25 @@
 require 'pry'
 
 class MarkovTweeter::Generator
-  attr_accessor :graph, :order
-
-def initialize
-  @order = 3
-  @graph = {}
-end
+  attr_accessor :graph, :order, :result, :possibilities, :current_gram, :next_char, :files
 
 
 # selected 140 character tweet
 def self.markovIt140(input)
-  result = current_gram
+  @result = @current_gram
   i = 0
   while i < input do
-    current_gram = text.substring(0, @order)
-    possibilities = @graph[current_gram]
+    @current_gram = text.slice(0, @order)
+    @possibilities = @graph[@current_gram]
     if !possibilities
       break
     end
-    next_char = rand(0..possibilities)
-    result += next_char
-    current_gram = result.substring(result.length - @order, result.length)
+    @next_char = rand(0..possibilities)
+    @result += @next_char
+    @current_gram = @result.slice(@result.length - @order, @result.length)
   i += 1
   end
-  result
+  @result
 end
 
 
