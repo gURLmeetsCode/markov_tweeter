@@ -8,7 +8,7 @@ class MarkovTweeter::FileImporter
   def read
     File.open(File.dirname(__FILE__) + '/tweets.txt', "r") do |f|
       f.each_line do |line|
-        @files ||= line
+        @files << line
       end
     end
   end
