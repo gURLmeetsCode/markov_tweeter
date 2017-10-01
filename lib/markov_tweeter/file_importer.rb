@@ -3,6 +3,8 @@ class MarkovTweeter::FileImporter
 
   def initialize
     @files = []
+    @order = 3
+    @graph = {}
   end
 
   def read
