@@ -1,5 +1,5 @@
 class MarkovTweeter::FileImporter
-  attr_reader :graph, :order, :files
+  attr_accessor :graph, :order, :files
 
   def initialize
     @files = []

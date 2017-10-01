@@ -1,7 +1,8 @@
 require 'pry'
 
 class MarkovTweeter::Generator
-  attr_accessor :graph, :order, :result, :possibilities, :current_gram, :next_char, :files
+  attr_accessor :result, :possibilities, :current_gram, :next_char
+  attr_reader :files, :graph, :order
 
 
 # selected 140 character tweet
