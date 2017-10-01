@@ -2,7 +2,7 @@ class MarkovTweeter::FileImporter
   attr_reader :graph, :order
 
   def train
-    File.open("markov_tweeter/lib/markov_tweeter/tweets.txt", "r") do |f|
+    File.open("tweets.txt", "r") do |f|
       f.each_line do |line|
         i = 0
         while i < line.length - @order do
